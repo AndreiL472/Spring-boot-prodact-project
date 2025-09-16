@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Salutare</title>
+</head>
+<body>
+
+    <h1 th:text="'Salutare, numele meu este ' + ${name} "></h1>
+    <ul>
+        <li th:each="item : ${items}" th:text="${item}"></li>
+    </ul>
+    <div th:if="${isLogged}">
+        <p>Welcome back, you are connected!</p>
+    </div>
+    <div th:unless="${isLogged}">
+        <p>Please authenticate first!</p>
+    </div>
+
+    <div th:switch="${role}">
+        <p th:case="User">You are a user</p>
+        <p th:case="Admin">You are an administrator</p>
+        <p th:case="*">Unknown role</p>
+    </div>
+
+</body>
+</html>

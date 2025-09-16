@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Category</title>
+</head>
+<body>
+<h1>Edit Category </h1>
+
+<form th:action="@{/view/categories/edit}"
+      th:object="${category}"
+      method="post">
+
+    <div>
+<!--        Camp ascuns legat de category.id-->
+<!--        Cu scopul de a trimite ID-ul la server ca sa stie ce categorie se actualizeaza-->
+        <input type="hidden" th:field="*{id}" />
+
+<!--        Camp text legat de category.name-->
+        <label>Category name:</label>
+        <input type="text" th:field="*{name}" placeholder="Enter category name"/>
+    </div>
+
+    <button type="submit">Update Category</button>
+
+</form>
+
+
+
+
+</body>
+</html>

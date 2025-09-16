@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Category</title>
+</head>
+<body>
+    <h1>Add Category </h1>
+<!--    th:action - genereaza URL-ul spre endpointul de POST /view/categories/add-->
+    <form th:action="@{/view/categories/add}"
+          th:object="${category}"
+          method="post">
+
+        <div>
+            <label>Category name:</label>
+            <input type="text" th:field="*{name}" placeholder="Enter category name"/>
+        </div>
+
+        <button type="submit">Save</button>
+
+
+    </form>
+
+</body>
+</html>

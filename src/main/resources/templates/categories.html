@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Categories</title>
+</head>
+<body>
+
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="cat : ${categories}">
+            <td th:text="${cat.id}"></td>
+            <td th:text="${cat.name}"></td>
+            <td>
+<!--                @{} URL Expression in Thymeleaf-->
+<!--                /{id} defineste path variable-->
+<!--                (id=${cat.id}) maparea valorii in placeholderul {id}-->
+                <a th:href="@{/view/categories/edit/{id}(id=${cat.id})}">Edit</a>
+                <a th:href="@{/view/categories/delete/{id}(id=${cat.id})}">Delete</a>
+
+            </td>
+
+        </tr>
+        </tbody>
+
+    </table>
+
+</body>
+</html>

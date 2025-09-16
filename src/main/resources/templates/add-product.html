@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Product</title>
+</head>
+<body>
+<h1>Add Product </h1>
+<!--    th:action - genereaza URL-ul spre endpointul de POST /view/categories/add-->
+<form th:action="@{/view/products/add}"
+      th:object="${product}"
+      method="post">
+
+    <div>
+        <label>Product name:</label>
+        <input type="text" th:field="*{name}" placeholder="Enter product name"/>
+    </div>
+
+    <div>
+        <label>Product price:</label>
+        <input type="number" th:field="*{price}" placeholder="Enter product price"/>
+    </div>
+
+    <div>
+        <label>Choose a category:</label>
+        <select th:field="*{category.id}">
+            <option th:each="category:${categories}"
+                    th:value="${category.id}"
+                    th:text="${category.name}"> </option>
+        </select>
+        <br><br>
+        <input type="submit" value="Submit">
+    </div>
+
+
+    <button type="submit">Save</button>
+
+</form>
+</body>
+</html>
